@@ -21,6 +21,7 @@
 #include "can.h"
 #include "tim.h"
 #include "gpio.h"
+#include "Motor_Can.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -91,13 +92,15 @@ int main(void)
   MX_CAN1_Init();
   MX_TIM6_Init();
   /* USER CODE BEGIN 2 */
-
+  can_filter_init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    CAN_cmd_can_1(4000, 4000, 4000, 4000);
+    HAL_Delay(2);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
